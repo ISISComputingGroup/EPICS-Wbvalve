@@ -17,3 +17,27 @@ record(bo, "$(P)DISABLE")
     field(ZNAM, "COMMS ENABLED")
     field(ONAM, "COMMS DISABLED")
 }
+
+record(mbbo, "$(P)POS:SP")
+{
+    field(DTYP, "stream")
+	field(DESC, "Set point for water bath valve")
+	field(OUT, "@wbvalve.proto setPosition() $(PORT)")
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(ZRST, "wb1")
+	field(ONST, "wb2")
+}
+
+record(mbbi, "$(P)POS")
+{
+    field(DTYP, "stream")
+	field(DESC, "Current water bath valve position")
+	field(INP, "@wbvalve.proto getPosition() $(PORT)")
+	field(SCAN, "1 second")
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(ZRST, "wb1")
+	field(ONST, "wb2")
+}
+

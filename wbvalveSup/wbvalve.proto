@@ -1,18 +1,11 @@
-getIDN {
-    out "*IDN?";
-    in "%\$1[^\r\n]";
-    ExtraInput = Ignore;
+Terminator = "\r\n";
+
+
+getPosition {
+    out "st";
+	in "%{wb1on|wb2on}";
 }
 
-cmd {
-    out "\$1";
-}
-
-setD {
-    out "\$1 %d";
-}
-getD {
-    out "\$1?";
-    in "%d";
-    ExtraInput = Ignore;
+setPosition {
+    out "%{wb1on|wb2on}";
 }
