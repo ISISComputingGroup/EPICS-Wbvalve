@@ -27,6 +27,7 @@ record(mbbo, "$(P)POS:SP")
 	field(ONVL, "1")
 	field(ZRST, "wb1")
 	field(ONST, "wb2")
+	info(archive, "VAL")
 }
 
 record(mbbi, "$(P)POS")
@@ -39,5 +40,10 @@ record(mbbi, "$(P)POS")
 	field(ONVL, "1")
 	field(ZRST, "wb1")
 	field(ONST, "wb2")
+	info(INTEREST, "HIGH")
+	info(archive, "VAL")
+	info(alarm, "WBVALVE")
 }
+
+
 
