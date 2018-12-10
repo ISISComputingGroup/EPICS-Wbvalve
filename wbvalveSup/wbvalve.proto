@@ -1,4 +1,4 @@
-Terminator = "\r\n";
+Terminator = "\n";
 
 
 getPosition {
