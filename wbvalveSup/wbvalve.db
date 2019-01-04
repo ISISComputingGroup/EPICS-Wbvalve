@@ -1,49 +1,56 @@
-record(bo, "$(P)SIM")
-{
+record(bo, "$(P)SIM") {
     field(SCAN, "Passive")
     field(DTYP, "Soft Channel")
+	field(PINI, "YES")
+	
     field(ZNAM, "NO")
     field(ONAM, "YES")
     field(VAL, "$(RECSIM=0)")
-    field(PINI, "YES")
+
 }
 
-record(bo, "$(P)DISABLE")
-{
+record(bo, "$(P)DISABLE") {
     field(DESC, "Disable comms")
     field(PINI, "YES")
-    field(VAL, "$(DISABLE=0)")
     field(OMSL, "supervisory")
+	
     field(ZNAM, "COMMS ENABLED")
     field(ONAM, "COMMS DISABLED")
+	field(VAL, "$(DISABLE=0)")
 }
 
-record(mbbo, "$(P)POS:SP")
-{
-    field(DTYP, "stream")
-	field(DESC, "Set point for water bath valve")
-	field(OUT, "@wbvalve.proto setPosition() $(PORT)")
-	field(ZRVL, "0")
-	field(ONVL, "1")
-	field(ZRST, "wb1")
-	field(ONST, "wb2")
-	info(archive, "VAL")
-}
-
-record(mbbi, "$(P)POS")
-{
+record(mbbi, "$(P)POS") {
     field(DTYP, "stream")
 	field(DESC, "Current water bath valve position")
-	field(INP, "@wbvalve.proto getPosition() $(PORT)")
 	field(SCAN, "1 second")
+	
+	field(INP, "@wbvalve.proto getPosition() $(PORT)")
+
 	field(ZRVL, "0")
 	field(ONVL, "1")
 	field(ZRST, "wb1")
 	field(ONST, "wb2")
+	
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
 	info(alarm, "WBVALVE")
 }
+
+record(mbbo, "$(P)POS:SP") {
+    field(DTYP, "stream")
+	field(DESC, "Set point for water bath valve")
+	
+	field(OUT, "@wbvalve.proto setPosition() $(PORT)")
+	
+	field(ZRVL, "0")
+	field(ONVL, "1")
+	field(ZRST, "wb1")
+	field(ONST, "wb2")
+	
+	info(archive, "VAL")
+}
+alias("$(P)POS:SP", "$(P)POS:SP:RBV")
+
 
 
 
