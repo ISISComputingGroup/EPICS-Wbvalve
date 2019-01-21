@@ -1,0 +1,11 @@
+Terminator = "\n";
+
+
+getPosition {
+    out "st";
+	in "%{wb1on|wb2on}";
+}
+
+setPosition {
+    out "%{wb1on|wb2on}";
+}
