@@ -28,8 +28,8 @@ record(mbbi, "$(P)POS") {
 
 	field(ZRVL, "0")
 	field(ONVL, "1")
-	field(ZRST, "wb1")
-	field(ONST, "wb2")
+	field(ZRST, "J1")
+	field(ONST, "J2")
 	
 	info(INTEREST, "HIGH")
 	info(archive, "VAL")
@@ -44,8 +44,8 @@ record(mbbo, "$(P)POS:SP") {
 	
 	field(ZRVL, "0")
 	field(ONVL, "1")
-	field(ZRST, "wb1")
-	field(ONST, "wb2")
+	field(ZRST, "J1")
+	field(ONST, "J2")
 	
 	info(archive, "VAL")
 }
