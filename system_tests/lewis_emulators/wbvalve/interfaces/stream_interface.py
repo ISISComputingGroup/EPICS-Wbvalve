@@ -1,6 +1,5 @@
-from lewis.adapters.stream import StreamInterface, Cmd
+from lewis.adapters.stream import StreamInterface
 from lewis.core.logging import has_log
-
 from lewis.utils.command_builder import CmdBuilder
 from lewis.utils.replies import conditional_reply
 
@@ -9,16 +8,14 @@ if_connected = conditional_reply("connected")
 
 @has_log
 class WbvalveStreamInterface(StreamInterface):
-
-    in_terminator = '\r\n'
-    out_terminator = '\r\n'
+    in_terminator = "\r\n"
+    out_terminator = "\r\n"
 
     def __init__(self):
-
         super(WbvalveStreamInterface, self).__init__()
         self.commands = {
             CmdBuilder(self.get_position).escape("st").eos().build(),
-            CmdBuilder(self.set_position).escape("wb").int().escape("on").eos().build()
+            CmdBuilder(self.set_position).escape("wb").int().escape("on").eos().build(),
         }
 
     def handle_error(self, request, error):
